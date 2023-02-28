@@ -109,32 +109,61 @@ func main() {
 	//index := sort.SearchInts(ages, 45)
 	//fmt.Println(index)
 
-	x := 0
-	// for - for and while loop
-	for x < 5 {
-		fmt.Println("value of x is:", x)
-		x++
-	}
-	//for loop
-	for i := 0; i < 5; i++ {
-		fmt.Println("value of i is:", i)
+	//x := 0
+	//// for - for and while loop
+	//for x < 5 {
+	//	fmt.Println("value of x is:", x)
+	//	x++
+	//}
+	////for loop
+	//for i := 0; i < 5; i++ {
+	//	fmt.Println("value of i is:", i)
+	//}
+	//
+	//names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	//
+	//for i := 0; i < len(names); i++ {
+	//	fmt.Println(names[i])
+	//}
+	//
+	////Cycling through a slice
+	//for index, name := range names {
+	//	fmt.Printf("the position at index %v and value %v \n", index, name)
+	//}
+	//
+	////For not wanting a value use underscore
+	//for _, name := range names {
+	//	fmt.Printf("value %v \n", name)
+	//	// Doesn't alter the original value in the slice
+	//	name = "new string"
+	//}
+
+	age := 45
+
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 50)
+	fmt.Println(age == 45)
+	fmt.Println(age != 50)
+
+	if age < 30 {
+		fmt.Println("age is less than 30")
+	} else if age < 40 {
+		fmt.Println("age is less than 40")
+	} else {
+		fmt.Println("age is not less than 45")
 	}
 
 	names := [4]string{"yoshi", "mario", "peach", "bowser"}
 
-	for i := 0; i < len(names); i++ {
-		fmt.Println(names[i])
-	}
-
-	//Cycling through a slice
 	for index, name := range names {
-		fmt.Printf("the position at index %v and value %v \n", index, name)
-	}
-
-	//For not wanting a value use underscore
-	for _, name := range names {
-		fmt.Printf("value %v \n", name)
-		// Doesn't alter the original value in the slice
-		name = "new string"
+		if index == 1 {
+			fmt.Println("Continuing at pos", index)
+			continue
+		}
+		if index > 2 {
+			fmt.Println("breaking at pos", index)
+			break
+		}
+		fmt.Printf("the value at pos %v is %v \n", index, name)
 	}
 }
