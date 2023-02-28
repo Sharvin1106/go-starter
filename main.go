@@ -26,15 +26,40 @@ func main() {
 	//
 
 	//ints
-	var ageOne int = 20
-	var ageTwo = 30
-	ageThree := 40
+	//var ageOne int = 20
+	//var ageTwo = 30
+	//ageThree := 40
 
-	fmt.Println(ageOne, ageTwo, ageThree)
+	//fmt.Println(ageOne, ageTwo, ageThree)
 
 	// bits & memory
-	var numOne int8 = 25
-	var numTwo int8 = -128
-	//Cant have a negative number
-	var numThree uint8 = 255
+	//var numOne int8 = 25
+	//var numTwo int8 = -128
+	////Cant have a negative number
+	//var numThree uint8 = 255
+
+	age := 35
+	name := "shaun"
+
+	fmt.Print("hello, ")
+	fmt.Print("world! \n")
+	fmt.Print("new line \n")
+
+	fmt.Println("hello ninjas!")
+	fmt.Println("goodbye ninjas!")
+	fmt.Println("my age is", age, "and my name is", name)
+
+	// Printf (formatted strings)
+	// v --> variable specifier
+	// q --> number specifier
+	// T --> for type specifier
+	// f --> floating points
+	fmt.Printf("my age is %v and my name is %v \n", age, name)
+	fmt.Printf("my age is %q and my name is %q \n", age, name)
+	fmt.Printf("age is of type %T \n", age)
+	fmt.Printf("you scored %0.1f points! \n", 225.55)
+
+	// Sprintf (save formatted strings)
+	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	fmt.Println("the saved string is:", str)
 }
