@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-	"strings"
-)
+import "fmt"
 
 func main() {
 
@@ -95,21 +91,50 @@ func main() {
 	//rangeOne = append(rangeOne, "koopa")
 	//fmt.Println(rangeOne)
 
-	greeting := "hello there friends"
+	//greeting := "hello there friends"
+	//
+	//fmt.Println(strings.Contains(greeting, "hello!"))
+	//fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
+	//fmt.Println(strings.ToUpper(greeting))
+	//fmt.Println(strings.Index(greeting, "th"))
+	//fmt.Println(strings.Split(greeting, " "))
+	//fmt.Println("original string value =", greeting)
+	//
+	//ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
+	//
+	//// Will alter the slice
+	//sort.Ints(ages)
+	//fmt.Println(ages)
+	//
+	//index := sort.SearchInts(ages, 45)
+	//fmt.Println(index)
 
-	fmt.Println(strings.Contains(greeting, "hello!"))
-	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
-	fmt.Println(strings.ToUpper(greeting))
-	fmt.Println(strings.Index(greeting, "th"))
-	fmt.Println(strings.Split(greeting, " "))
-	fmt.Println("original string value =", greeting)
+	x := 0
+	// for - for and while loop
+	for x < 5 {
+		fmt.Println("value of x is:", x)
+		x++
+	}
+	//for loop
+	for i := 0; i < 5; i++ {
+		fmt.Println("value of i is:", i)
+	}
 
-	ages := []int{45, 20, 35, 30, 75, 60, 50, 25}
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
 
-	// Will alter the slice
-	sort.Ints(ages)
-	fmt.Println(ages)
+	for i := 0; i < len(names); i++ {
+		fmt.Println(names[i])
+	}
 
-	index := sort.SearchInts(ages, 45)
-	fmt.Println(index)
+	//Cycling through a slice
+	for index, name := range names {
+		fmt.Printf("the position at index %v and value %v \n", index, name)
+	}
+
+	//For not wanting a value use underscore
+	for _, name := range names {
+		fmt.Printf("value %v \n", name)
+		// Doesn't alter the original value in the slice
+		name = "new string"
+	}
 }
