@@ -38,28 +38,56 @@ func main() {
 	////Cant have a negative number
 	//var numThree uint8 = 255
 
-	age := 35
-	name := "shaun"
-
-	fmt.Print("hello, ")
-	fmt.Print("world! \n")
-	fmt.Print("new line \n")
-
-	fmt.Println("hello ninjas!")
-	fmt.Println("goodbye ninjas!")
-	fmt.Println("my age is", age, "and my name is", name)
+	//age := 35
+	//name := "shaun"
+	//
+	//fmt.Print("hello, ")
+	//fmt.Print("world! \n")
+	//fmt.Print("new line \n")
+	//
+	//fmt.Println("hello ninjas!")
+	//fmt.Println("goodbye ninjas!")
+	//fmt.Println("my age is", age, "and my name is", name)
 
 	// Printf (formatted strings)
 	// v --> variable specifier
 	// q --> number specifier
 	// T --> for type specifier
 	// f --> floating points
-	fmt.Printf("my age is %v and my name is %v \n", age, name)
-	fmt.Printf("my age is %q and my name is %q \n", age, name)
-	fmt.Printf("age is of type %T \n", age)
-	fmt.Printf("you scored %0.1f points! \n", 225.55)
+	//fmt.Printf("my age is %v and my name is %v \n", age, name)
+	//fmt.Printf("my age is %q and my name is %q \n", age, name)
+	//fmt.Printf("age is of type %T \n", age)
+	//fmt.Printf("you scored %0.1f points! \n", 225.55)
 
 	// Sprintf (save formatted strings)
-	var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
-	fmt.Println("the saved string is:", str)
+	//var str = fmt.Sprintf("my age is %v and my name is %v \n", age, name)
+	//fmt.Println("the saved string is:", str)
+
+	// syntax --> var variable_name [length]data_type = [length]data_type{values}
+	//var ages [3]int = [3]int{20,25,30}
+	//short hand
+	var ages = [3]int{20, 25, 30}
+
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	names[1] = "luigi"
+	fmt.Println(ages, len(ages))
+	fmt.Println(names, len(names))
+
+	// slices (use arrays under the hood), can append items
+	var scores = []int{100, 50, 60}
+	scores[2] = 25
+	scores = append(scores, 85)
+
+	fmt.Println(scores, len(scores))
+
+	// slice
+	// Does not include 3
+	rangeOne := names[1:3]
+	rangeTwo := names[2:]
+	rangeThree := names[:3]
+
+	fmt.Println(rangeOne, rangeTwo, rangeThree)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
 }
