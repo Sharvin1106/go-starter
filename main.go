@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 //func sayGreeting(n string) {
 //	fmt.Printf("Good morning %v \n", n)
@@ -36,8 +34,22 @@ import (
 //	return initials[0], "_"
 //}
 
-func main() {
+func updateName(x *string) {
+	*x = "wedge"
+}
 
+func main() {
+	name := "tifa"
+
+	fmt.Println("Memory address of name is: ", &name)
+
+	// Storing memory address
+	m := &name
+	fmt.Println("memory address:", m)
+	fmt.Println("value at memory address:", *m)
+	fmt.Println(name)
+	updateName(m)
+	fmt.Println(name)
 	// Strings use double quote
 	// If you dont use a variable in go its an error
 	//var nameOne string = "Mario"
@@ -222,32 +234,32 @@ func main() {
 	//for _, v := range points {
 	//	fmt.Println(v)
 	//}
-	menu := map[string]float64{
-		"soup":           4.99,
-		"pie":            7.99,
-		"salad":          6.99,
-		"toffee pudding": 3.55,
-	}
-
-	fmt.Println(menu)
-	fmt.Println(menu["pie"])
-
-	//Looping maps
-	for k, v := range menu {
-		fmt.Println(k, "-", v)
-	}
-
-	//ints as key type
-	phonebook := map[int]string{
-		267584967: "mario",
-		984759373: "luigi",
-		845775485: "peach",
-	}
-
-	fmt.Println(phonebook)
-	fmt.Println(phonebook[267584967])
-
-	phonebook[984759373] = "bowser"
-
-	fmt.Println(phonebook)
+	//menu := map[string]float64{
+	//	"soup":           4.99,
+	//	"pie":            7.99,
+	//	"salad":          6.99,
+	//	"toffee pudding": 3.55,
+	//}
+	//
+	//fmt.Println(menu)
+	//fmt.Println(menu["pie"])
+	//
+	////Looping maps
+	//for k, v := range menu {
+	//	fmt.Println(k, "-", v)
+	//}
+	//
+	////ints as key type
+	//phonebook := map[int]string{
+	//	267584967: "mario",
+	//	984759373: "luigi",
+	//	845775485: "peach",
+	//}
+	//
+	//fmt.Println(phonebook)
+	//fmt.Println(phonebook[267584967])
+	//
+	//phonebook[984759373] = "bowser"
+	//
+	//fmt.Println(phonebook)
 }
