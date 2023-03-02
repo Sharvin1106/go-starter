@@ -2,41 +2,39 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"strings"
 )
 
-func sayGreeting(n string) {
-	fmt.Printf("Good morning %v \n", n)
-}
-
-func sayBye(n string) {
-	fmt.Printf("Goodbye %v \n", n)
-}
-
-func cycleNames(n []string, f func(string)) {
-	for _, name := range n {
-		f(name)
-	}
-}
-
-func circleArea(r float64) float64 {
-	return math.Pi * r * r
-}
-
-func getInitials(n string) (string, string) {
-	s := strings.ToUpper(n)
-	names := strings.Split(s, " ")
-	var initials []string
-	for _, v := range names {
-		initials = append(initials, v[:1])
-	}
-	if len(initials) > 1 {
-		return initials[0], initials[1]
-	}
-
-	return initials[0], "_"
-}
+//func sayGreeting(n string) {
+//	fmt.Printf("Good morning %v \n", n)
+//}
+//
+//func sayBye(n string) {
+//	fmt.Printf("Goodbye %v \n", n)
+//}
+//
+//func cycleNames(n []string, f func(string)) {
+//	for _, name := range n {
+//		f(name)
+//	}
+//}
+//
+//func circleArea(r float64) float64 {
+//	return math.Pi * r * r
+//}
+//
+//func getInitials(n string) (string, string) {
+//	s := strings.ToUpper(n)
+//	names := strings.Split(s, " ")
+//	var initials []string
+//	for _, v := range names {
+//		initials = append(initials, v[:1])
+//	}
+//	if len(initials) > 1 {
+//		return initials[0], initials[1]
+//	}
+//
+//	return initials[0], "_"
+//}
 
 func main() {
 
@@ -202,26 +200,54 @@ func main() {
 	//	}
 	//	fmt.Printf("the value at pos %v is %v \n", index, name)
 	//}
-	sayGreeting("mario")
-	sayGreeting("luigi")
-	sayBye("mario")
+	//sayGreeting("mario")
+	//sayGreeting("luigi")
+	//sayBye("mario")
+	//
+	//cycleNames([]string{"cloud", "tifa", "barret"}, sayGreeting)
+	//cycleNames([]string{"cloud", "tifa", "barret"}, sayBye)
+	//
+	//a1 := circleArea(10.5)
+	//a2 := circleArea(15)
+	//
+	//fmt.Println(a1, a2)
+	//fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f \n", a1, a2)
+	//
+	//fn, sn := getInitials("sharvin Harchana")
+	//
+	//fmt.Println(fn, sn)
 
-	cycleNames([]string{"cloud", "tifa", "barret"}, sayGreeting)
-	cycleNames([]string{"cloud", "tifa", "barret"}, sayBye)
-
-	a1 := circleArea(10.5)
-	a2 := circleArea(15)
-
-	fmt.Println(a1, a2)
-	fmt.Printf("circle 1 is %0.3f and circle 2 is %0.3f \n", a1, a2)
-
-	fn, sn := getInitials("sharvin Harchana")
-
-	fmt.Println(fn, sn)
-
-	sayHello("mario")
-
-	for _, v := range points {
-		fmt.Println(v)
+	//sayHello("mario")
+	//
+	//for _, v := range points {
+	//	fmt.Println(v)
+	//}
+	menu := map[string]float64{
+		"soup":           4.99,
+		"pie":            7.99,
+		"salad":          6.99,
+		"toffee pudding": 3.55,
 	}
+
+	fmt.Println(menu)
+	fmt.Println(menu["pie"])
+
+	//Looping maps
+	for k, v := range menu {
+		fmt.Println(k, "-", v)
+	}
+
+	//ints as key type
+	phonebook := map[int]string{
+		267584967: "mario",
+		984759373: "luigi",
+		845775485: "peach",
+	}
+
+	fmt.Println(phonebook)
+	fmt.Println(phonebook[267584967])
+
+	phonebook[984759373] = "bowser"
+
+	fmt.Println(phonebook)
 }
