@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
 
 //func sayGreeting(n string) {
 //	fmt.Printf("Good morning %v \n", n)
@@ -33,23 +39,83 @@ import "fmt"
 //
 //	return initials[0], "_"
 //}
+// Function to demonstrate pointers
+//func updateName(x *string) {
+//	*x = "wedge"
+//}
 
-func updateName(x *string) {
-	*x = "wedge"
+func getInput(prompt string, r *bufio.Reader) (string, error) {
+	fmt.Print(prompt)
+	input, err := r.ReadString('\n')
+
+	return strings.TrimSpace(input), err
+}
+
+func createBill() bill {
+	reader := bufio.NewReader(os.Stdin)
+
+	name, _ := getInput("Create a new bill name: ", reader)
+
+	b := newBill(name)
+	fmt.Println("Created the bill - ", b.name)
+
+	return b
+}
+
+func promptOptions(b bill) {
+	reader := bufio.NewReader(os.Stdin)
+
+	opt, _ := getInput("Choose option (a - add item, s - save bill, t - add tip): ", reader)
+
+	switch opt {
+	case "a":
+		// Getting an input from user is always string
+		name, _ := getInput("Item name: ", reader)
+		price, _ := getInput("Item price: ", reader)
+		p, err := strconv.ParseFloat(price, 64)
+		if err != nil {
+			fmt.Println("The price must be a number")
+			promptOptions(b)
+		}
+		b.addItem(name, p)
+		fmt.Println("item added - ", name, price)
+		promptOptions(b)
+	case "t":
+		tip, _ := getInput("Enter tip amount ($): ", reader)
+		t, err := strconv.ParseFloat(tip, 64)
+		if err != nil {
+			fmt.Println("The tip must be a number")
+			promptOptions(b)
+		}
+		b.updateTip(t)
+		fmt.Println("tip added - ", tip)
+		promptOptions(b)
+	case "s":
+		b.save()
+		fmt.Println("you chose to save the bill", b.name)
+	default:
+		fmt.Println("that was not a valid option.....")
+		promptOptions(b)
+	}
 }
 
 func main() {
-	name := "tifa"
 
-	fmt.Println("Memory address of name is: ", &name)
+	mybill := createBill()
+	promptOptions(mybill)
+	fmt.Println(mybill)
 
-	// Storing memory address
-	m := &name
-	fmt.Println("memory address:", m)
-	fmt.Println("value at memory address:", *m)
-	fmt.Println(name)
-	updateName(m)
-	fmt.Println(name)
+	//name := "tifa"
+	//
+	//fmt.Println("Memory address of name is: ", &name)
+	//
+	//// Storing memory address
+	//m := &name
+	//fmt.Println("memory address:", m)
+	//fmt.Println("value at memory address:", *m)
+	//fmt.Println(name)
+	//updateName(m)
+	//fmt.Println(name)
 	// Strings use double quote
 	// If you dont use a variable in go its an error
 	//var nameOne string = "Mario"
@@ -262,4 +328,7 @@ func main() {
 	//phonebook[984759373] = "bowser"
 	//
 	//fmt.Println(phonebook)
+
+	//Bill
+
 }
